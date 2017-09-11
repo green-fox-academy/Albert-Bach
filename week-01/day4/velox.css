@@ -1,0 +1,18 @@
+h1,h2,h3 {
+  border-style: solid;
+  border-width: 5px;
+  border-color:#7DCE94;
+  width: 350px;
+  box-sizing: border-box;
+  margin: 20px ;
+  background-color: #0E91A1;
+  padding-top: 20px;
+  padding-bottom: 80px;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-size: 36px;
+  font-family: 'Lora', serif;
+  font-style: normal;
+  color: #005468;
+  text-align: left;
+}

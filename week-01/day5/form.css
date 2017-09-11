@@ -1,0 +1,28 @@
+body {
+  background: #DCD6CD;
+  margin: 0 auto;
+  font-family: arial;
+}
+
+div {
+  box-sizing: border-box;
+}
+
+.bigxbox > div {
+  background: #127731;
+  padding: 10px 10px;
+  margin: 15px 0px;
+}
+
+.left ,.right {
+  background: #FFE42E;
+  float: left;
+  width: 50%;
+}
+
+.bottom {
+  background: #FFE42E;
+  float: left;
+  width: 100%;
+  }
+}

@@ -1,0 +1,12 @@
+h1 {
+  color: #EBAA39;
+  font-weight: 900;
+  font-size: 36;
+  }
+p,h2 {
+  line-height: 0.2em;
+  font-size: 15px;
+  font-weight: 900;
+  word-spacing: 4px;
+  }
+h2 { margin: 5px;}
