@@ -12,12 +12,8 @@ namespace DoubleItems
         {
             int[] ag = { 3, 4, 5, 6, 7 };
             for (int i = 0; i < ag.Length; i++)
-            ag[i] *= 2;
             
-
-            foreach (int i in ag)
-            
-            Console.WriteLine(i);
+            Console.WriteLine(ag[i] *= 2);
             Console.ReadKey();
 
         }
