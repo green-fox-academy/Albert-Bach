@@ -10,10 +10,19 @@ namespace TodoPrint
     {
         static void Main(string[] args)
         {
-            string  todoText =   "My todo:\n  - Buy milk\n  - Download games\n\t  - Diablo";
+            string todoText = " - Buy milk\n";
+
+            StringBuilder sb = new StringBuilder();
+            sb.AppendLine("My todo:");
+            sb.Append(todoText);
+            sb.AppendLine(" - Download games");
+            sb.AppendLine("\t - Diablo");
+
+            todoText = sb.ToString();
 
             Console.WriteLine(todoText);
-            Console.ReadLine();
+
+            Console.ReadKey();
         }
     }
 }
