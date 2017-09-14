@@ -50,9 +50,29 @@ namespace StudentCounter
             row5.Add("candies", 2);
             map.Add(row5);
 
-            // Display the following things:
-            //  - Who has got more candies than 4 candies
-            //  - Sum the age of people who have lass than 5 candies
+            double sum = 0.0;
+            object name;
+
+            for (int i = 0; i < map.Count; i++)
+            {
+                if (map[i].TryGetValue("age", out object valueAge) &&
+                    map[i].TryGetValue("candies", out object valueCandies) &&
+                    map[i].TryGetValue("name", out object valueName))
+                {
+                    double age = Convert.ToDouble(valueAge);
+                    int candies = Convert.ToInt32(valueCandies);
+
+                    if (candies < 5) sum += age;
+                    if (candies > 4)
+                    {
+                        name = valueName;
+                        Console.WriteLine(name);
+                    }
+                }
+            }
+
+            Console.WriteLine(sum);
+            Console.ReadLine();
         }
     }
 }
