@@ -27,7 +27,7 @@ namespace Anagram
             Array.Sort(char1);
             Array.Sort(char2);
             
-            return new string(char1) == new string(char2);
+            return char1 == char2;
            
         }
     }

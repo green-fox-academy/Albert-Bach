@@ -10,8 +10,25 @@ namespace Palindrome_builder
     {
         static void Main(string[] args)
         {
-           // Create a function named create palindrome following your current language's style guide. 
-           // It should take a string, create a palindrome from it and then return it.
+            Console.WriteLine("Write a word");
+            string word = Console.ReadLine();
+
+            string Palindrome = CreateaPalindrome(word);
+            Console.WriteLine(Palindrome);
+            Console.ReadLine();
+
+        }
+
+        static string CreateaPalindrome(string word)
+
+        {
+            string Palindrome = word;
+            for (int i = 1; i < word.Length; i++)
+            {
+                Palindrome = Palindrome + word[word.Length - i];
+            }
+            Palindrome = Palindrome + word[0];
+            return (Palindrome);
         }
     }
 }
