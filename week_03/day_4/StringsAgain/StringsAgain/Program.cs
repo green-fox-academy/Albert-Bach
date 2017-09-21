@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace String1
+namespace StringsAgain
 {
     class Program
     {
@@ -26,14 +26,12 @@ namespace String1
             {
                 return "";
             }
-            else
-            {
-                if (word[0] == 'x')
+            else if (word[0] == 'x')
                 {
                     result = "";
                     return Remover(word.Substring(1)) + result;
                 }
-                else
+            else
                 {
                     return word[0] + Remover(word.Substring(1));
                 }
