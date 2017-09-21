@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26730.16
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Numberadder", "Numberadder\Numberadder.csproj", "{19711F61-290E-49E8-9B8E-160AB47944AB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{19711F61-290E-49E8-9B8E-160AB47944AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{19711F61-290E-49E8-9B8E-160AB47944AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{19711F61-290E-49E8-9B8E-160AB47944AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{19711F61-290E-49E8-9B8E-160AB47944AB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {78ED88E9-3874-4D88-9533-B406F4CD5D64}
+	EndGlobalSection
+EndGlobal
