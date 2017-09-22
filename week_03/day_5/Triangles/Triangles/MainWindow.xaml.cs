@@ -26,17 +26,26 @@ namespace Triangles
             InitializeComponent();
             var foxDraw = new FoxDraw(canvas);
             int level = 6;
-
-            Point left= new Point(0, 0);
-            Point right = new Point(300, 0);
-            Point bottom= new Point(150, 300);
             Random random = new Random();
 
-            Triangle(foxDraw, level, left, right, bottom);
+
+            Point left= new Point(0, 0);
+            Point right = new Point(600, 0);
+            Point bottom= new Point(300, 600);
+
+            Triangle(foxDraw, level, left, right, bottom,RandomColor(random),random);
 
         }
 
-        public static void Triangle(FoxDraw draw, int level, Point left, Point right, Point bottom)
+        public static Color RandomColor(Random random)
+        {
+            return Color.FromArgb((byte)random.Next(255),
+                                  (byte)random.Next(255),
+                                  (byte)random.Next(255),
+                                  (byte)random.Next(255));
+        }
+
+        public static void Triangle(FoxDraw draw, int level, Point left, Point right, Point bottom, Color color, Random random)
         {
             
             if (level == 0)
@@ -48,9 +57,10 @@ namespace Triangles
                     bottom
                 };
 
-                draw.FillColor(Colors.White);
+                draw.FillColor(RandomColor(random));
                 draw.DrawPolygon(pointT);
             }
+
             else
             {
                 // Find the edge midpoints.
@@ -59,9 +69,9 @@ namespace Triangles
                 Point left_mid = new Point((bottom.X + left.X) / 2f,(bottom.Y + left.Y) / 2f);
 
                 // Recursively draw smaller triangles.
-                Triangle(draw, level - 1,left, top_mid, left_mid);
-                Triangle(draw, level - 1,top_mid, right, right_mid);
-                Triangle(draw, level - 1,left_mid, right_mid, bottom);
+                Triangle(draw, level - 1,left, top_mid, left_mid, color, random);
+                Triangle(draw, level - 1,top_mid, right, right_mid, color, random);
+                Triangle(draw, level - 1,left_mid, right_mid, bottom, color, random);
             }
         }
 
