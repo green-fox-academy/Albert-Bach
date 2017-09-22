@@ -30,7 +30,7 @@ namespace RainbowBoxFunction
 
             for (int size = 300; size >=0; size-= 10)
             {
-                Square(foxDraw, size , RandomColor(random));
+                Square(foxDraw, size, RandomColor(random));
             }
         }
 
