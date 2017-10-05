@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Green_Fox_organization
 {
@@ -10,7 +7,8 @@ namespace Green_Fox_organization
     {
         static void Main(string[] args)
         {
-           List people = new List();
+
+            List<Person> people = new List<Person>();
 
             Person mark = new Person("Mark", 46, "male");
             people.Add(mark);
@@ -25,7 +23,9 @@ namespace Green_Fox_organization
             Mentor mentor = new Mentor();
             people.Add(mentor);
             Sponsor sponsor = new Sponsor();
+            people.Add(sponsor);
             Sponsor elon = new Sponsor("Elon Musk", 46, "male", "SpaceX");
+            people.Add(elon);
 
             student.SkipDays(3);
 
@@ -42,7 +42,18 @@ namespace Green_Fox_organization
             {
                 person.Introduce();
                 person.GetGoal();
+
+                Console.WriteLine();
             }
+
+            PallidaClass alpaga = new PallidaClass("Alpaga");
+            alpaga.AddStudent(student);
+            alpaga.AddStudent(john);
+            alpaga.AddMentor(mentor);
+            alpaga.AddMentor(gandhi);
+            alpaga.Info();
+
+            Console.ReadLine();
         }
     }
 }
