@@ -8,5 +8,11 @@ namespace Garden_Application
 {
     class Garden
     {
+        List<Plant> plants = new List<Plant>();
+        
+        public void Add(Plant plant)
+        {
+            plants.Add(plant);
+        }
     }
 }

@@ -6,7 +6,12 @@ using System.Threading.Tasks;
 
 namespace Garden_Application
 {
-    class Flowers
+    class Flower : Plant
     {
+       public Flower(string color)
+       {
+            this.color = color;
+       }
     }
+   
 }
