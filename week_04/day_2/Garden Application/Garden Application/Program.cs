@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Garden_Application
 {
@@ -17,7 +13,17 @@ namespace Garden_Application
             Tree tree2 = new Tree("orange");
 
             garden.Add(flower1);
+            garden.Add(flower2);
+            garden.Add(tree1);
+            garden.Add(tree2);
 
+            garden.GetStatus();
+            garden.WaterAdding(40);
+            garden.GetStatus();
+            garden.WaterAdding(70);
+            garden.GetStatus();
+
+            Console.ReadLine();
         }
     }
 }
