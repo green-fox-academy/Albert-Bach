@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace Garden_Application
 {
-    public class Program
+    class Program
     {
+        static void Main(string[] args)
+        {
+        }
     }
 }
