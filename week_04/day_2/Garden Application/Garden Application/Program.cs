@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Garden_Application
 {
-    public class Class1
+    public class Program
     {
     }
 }
