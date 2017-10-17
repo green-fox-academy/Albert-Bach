@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Garden_Application
+﻿namespace Garden_Application
 {
     class Tree : Plant
     {
@@ -16,6 +10,5 @@ namespace Garden_Application
             this.absorbing = 0.4;
 
         }
-    }
-    
+    } 
 }

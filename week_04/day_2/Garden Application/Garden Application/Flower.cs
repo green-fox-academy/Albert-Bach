@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Garden_Application
+﻿namespace Garden_Application
 {
     class Flower : Plant
     {
@@ -15,6 +9,5 @@ namespace Garden_Application
             this.waterNeeds = 5;
             this.absorbing = 0.75;
        }
-    }
-   
+    } 
 }
