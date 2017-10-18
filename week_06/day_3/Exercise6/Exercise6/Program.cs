@@ -12,9 +12,10 @@ namespace Exercise6
 		{
 			string word = "characters";
 
-			var frequencyOfCharacters = from character in word
-										group character by character into chars
-										select new { chars.Key, Count = chars.Count() };
+			var frequencyOfCharacters = 
+			from character in word
+			group character by character into chars
+			select new { chars.Key, Count = chars.Count() };
 
 			var frequency = word.GroupBy(y => y).ToDictionary(y => y.Key, y => y.Count());
 
