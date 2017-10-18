@@ -22,7 +22,14 @@ namespace Exercise4
 				Console.WriteLine(number);
 			}
 
+			Console.WriteLine();
+			
 			IEnumerable<int> squaresWithLambda = n.Where(y => y * y > 20);
+
+			foreach (var squares in squaresWithLambda)
+			{
+				Console.WriteLine(squares);
+			}
 
 
 			Console.ReadLine();
