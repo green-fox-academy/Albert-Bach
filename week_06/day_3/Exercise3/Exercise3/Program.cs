@@ -22,7 +22,14 @@ namespace Exercise3
 				Console.WriteLine(number);
 			}
 
+			Console.WriteLine();
+
 			var positiveSquaresWithLambda = n.Where(y => y > 0).Select(y => y * y);
+
+			foreach (var squares in positiveSquaresWithLambda)
+			{
+				Console.WriteLine(squares);
+			}
 
 			Console.ReadLine();
 		}
