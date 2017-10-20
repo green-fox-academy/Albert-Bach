@@ -33,13 +33,13 @@ namespace ParkingLot
 				Console.WriteLine(car);
 			}
 
-			var mostOccuringCar = (
+			var mostFrequentCar = (
 			from car in carStore.cars
 			group car by new { car.Type, car.Color } into mostOccuring
 			orderby mostOccuring.Count() descending
 			select new { mostOccuring.Key, Count = (from car in mostOccuring select car).Count() }).Take(1);
 
-			foreach (var car in mostOccuringCar)
+			foreach (var car in mostFrequentCar)
 			{
 				Console.WriteLine(car);
 			}
