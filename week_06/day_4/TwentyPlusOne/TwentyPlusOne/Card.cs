@@ -8,30 +8,28 @@ namespace TwentyPlusOne
 {
 	class Card
 	{
-		//public CardColor Color;
-		public CardSuit Suit;
-		public CardRank Rank;
-		public CardColor Color;
 
-		public Card(CardColor color, CardSuit suit, CardRank rank)
+		public Suit cardSuit { get; set; }
+		public Rank cardRank { get; set; }
+
+		public Card(Suit suit, Rank rank)
 		{
-			//Color = color;
-			Suit = suit;
-			Rank = rank;
+			cardSuit = suit;
+			cardRank = rank;
 		}
 
 		public override string ToString()
 		{
-			return string.Format("{0} {1} {2}", Color ,Suit, Rank);
+			return string.Format("{0} {1} ", cardSuit, cardRank);
 		}
 
-		public enum CardColor
+		public enum Color
 		{
 			red,
 			black
 		}
 
-		public enum CardSuit
+		public enum Suit
 		{
 			club,
 			diamond,
@@ -39,7 +37,7 @@ namespace TwentyPlusOne
 			spade
 		}
 		
-		public enum CardRank
+		public enum Rank
 		{
 			Two,
 			Three,

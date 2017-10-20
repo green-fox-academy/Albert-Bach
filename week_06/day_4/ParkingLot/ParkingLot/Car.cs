@@ -1,21 +1,33 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ParkingLot
+﻿namespace ParkingLot
 {
-	class Car : CarStore
+	class Car 
 	{
-		public CarType Type;
-		public CarColor Color;
+		public CarType Type { get; set; }
+		public CarColor Color { get; set; }
 
-		public Car(CarType type, CarColor color)
+		public Car(CarColor color, CarType type)
 		{
-			Type = type;
 			Color = color;
+			Type = type;
 		}
+
+		public Car(CarType Type, CarColor Color)
+		{
+			this.Type = Type;
+			this.Color = Color;
+		}
+
+	}
+
+	public enum CarColor
+	{
+		Black,
+		Blue,
+		Red,
+		Green,
+		White,
+		Yellow,
+		Silver
 	}
 
 	public enum CarType
@@ -31,14 +43,4 @@ namespace ParkingLot
 		Volkswagen
 	}
 
-	public enum CarColor
-	{
-		Black,
-		Blue,
-		Red,
-		Green,
-		White,
-		Yellow,
-		Silver
-	}
 }
