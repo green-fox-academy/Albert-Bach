@@ -7,13 +7,14 @@ namespace FirstWebApp.Controllers
 
 	public class WebController : Controller
 	{
+		static int counter = 0;
 		[Route("greeting")]
-		public IActionResult Greeting()
+		public IActionResult Greeting(string name)
 		{
 			var greeting = new Greeting()
 			{
-				Id = 1,
-				Content = "World"
+				Id = ++counter,
+				Content = name,
 			};
 
 			return View(greeting);
