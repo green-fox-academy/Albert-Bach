@@ -1,19 +1,20 @@
 ﻿@model BankOfSimba.ViewModels.Home.HomeViewModel
-
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 	<title></title>
 </head>
 <body>
 	<table>
-		@{ var index = 0;}
+		@{ var index = 0; }
 		@foreach (var account in Model.accounts)
 		{
-			<tr>
+			<tr style="@((@account.IsKing) ? "color:crimson" : "color:black") ">
 				<td>@(++index)</td>
 				<td>@account.Name</td>
-				<td>@account.Balance@String.Format(".00") Zebra</td>
 				<td>@account.AnimalType</td>
+				<td>@account.Balance@String.Format(".00") Zebra</td>
+				<td>@((@account.IsKing) ? "King" : "NotKing")</td>
+				<td>@((@account.IsGood) ? "Goodguy" : "Badguy")</td>
 			</tr>
 		}
 	</table>
