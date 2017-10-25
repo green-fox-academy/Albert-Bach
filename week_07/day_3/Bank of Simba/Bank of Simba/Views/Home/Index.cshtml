@@ -6,9 +6,11 @@
 </head>
 <body>
 	<table>
+		@{ var index = 0;}
 		@foreach (var account in Model.accounts)
 		{
 			<tr>
+				<td>@(++index)</td>
 				<td>@account.Name</td>
 				<td>@account.Balance@String.Format(".00") Zebra</td>
 				<td>@account.AnimalType</td>
