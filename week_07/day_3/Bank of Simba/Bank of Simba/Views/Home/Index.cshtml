@@ -1,4 +1,4 @@
-﻿@model BankOfSimba.ViewModels.Home.HomeViewModel
+﻿@model BankOfSimba.Models.BankAccount
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -6,9 +6,9 @@
 </head>
 <body>
 	<div>
-		<p>@Model.BankAccount.Name</p>
-		<p>@Model.BankAccount.Balance@String.Format(".00") Zebra</p>
-		<p>@Model.BankAccount.AnimalType</p>
+		<p>@Model.Name</p>
+		<p>@Model.Balance@String.Format(".00") Zebra</p>
+		<p>@Model.AnimalType</p>
 	</div>
 </body>
 </html>

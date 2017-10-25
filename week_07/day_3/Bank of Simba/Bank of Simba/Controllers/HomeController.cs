@@ -1,16 +1,22 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using BankOfSimba.ViewModels.Home;
+using BankOfSimba.Models;
+using System.Collections.Generic;
 
 namespace BankOfSimba.Controllers
 {
-    public class HomeController : Controller
-    {
+	public class HomeController : Controller
+	{
 		[Route("Simba")]
 		public IActionResult Index()
 		{
-			var homeViewModel = new HomeViewModel();
-			
-			return View(homeViewModel);
+			var bankAccount = new BankAccount()
+			{
+				Name = "Simba",
+				Balance = 2000,
+				AnimalType = AnimalType.Lion
+			};
+
+			return View(bankAccount);
 		}
 	}
 }
