@@ -1,14 +1,19 @@
-﻿@model BankOfSimba.Models.BankAccount
+﻿@model BankOfSimba.ViewModels.Home.HomeViewModel
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 	<title></title>
 </head>
 <body>
-	<div>
-		<p>@Model.Name</p>
-		<p>@Model.Balance@String.Format(".00") Zebra</p>
-		<p>@Model.AnimalType</p>
-	</div>
+	<table>
+		@foreach (var account in Model.accounts)
+		{
+			<tr>
+				<td>@account.Name</td>
+				<td>@account.Balance@String.Format(".00") Zebra</td>
+				<td>@account.AnimalType</td>
+			</tr>
+		}
+	</table>
 </body>
 </html>
