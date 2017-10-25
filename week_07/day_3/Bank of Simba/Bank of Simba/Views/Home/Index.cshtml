@@ -4,19 +4,29 @@
 	<title></title>
 </head>
 <body>
-	<table>
-		@{ var index = 0; }
-		@foreach (var account in Model.accounts)
-		{
-			<tr style="@((@account.IsKing) ? "color:crimson" : "color:black") ">
-				<td>@(++index)</td>
-				<td>@account.Name</td>
-				<td>@account.AnimalType</td>
-				<td>@account.Balance@String.Format(".00") Zebra</td>
-				<td>@((@account.IsKing) ? "King" : "NotKing")</td>
-				<td>@((@account.IsGood) ? "Goodguy" : "Badguy")</td>
+	<div>
+		<table border="1" cellpadding="15" style="text-align:center">
+			<tr style="font-weight: bold; background-color:goldenrod">
+				<td>Index</td>
+				<td>Name</td>
+				<td>Animal Type</td>
+				<td>Balance</td>
+				<td>Loyalty</td>
+				<td>Behaviour</td>
 			</tr>
-		}
-	</table>
+			@{ var index = 0; }
+			@foreach (var account in Model.accounts)
+			{
+				<tr style="@((@account.IsKing) ? "color:crimson" : "color:black") ">
+					<td>@(++index)</td>
+					<td>@account.Name</td>
+					<td>@account.AnimalType</td>
+					<td>@account.Balance@String.Format(".00") Zebra</td>
+					<td>@((@account.IsKing) ? "King" : "Not")</td>
+					<td>@((@account.IsGood) ? "Goodguy" : "Badguy")</td>
+				</tr>
+			}
+		</table>
+		</div>
 </body>
 </html>
