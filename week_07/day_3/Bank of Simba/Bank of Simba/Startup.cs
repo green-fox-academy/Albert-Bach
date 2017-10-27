@@ -11,13 +11,12 @@ namespace BankOfSimba
 		public void ConfigureServices(IServiceCollection services)
 		{
 			services.AddMvc();
+            services.AddSingleton<ViewModels.Home.HomeViewModel>();
 		}
 
 		public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
 		{
 			loggerFactory.AddConsole();
-
-			app.UseMvcWithDefaultRoute();
 
 			if (env.IsDevelopment())
 			{

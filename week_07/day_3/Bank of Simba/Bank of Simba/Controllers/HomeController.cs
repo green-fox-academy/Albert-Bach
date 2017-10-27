@@ -1,20 +1,31 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using BankOfSimba.ViewModels.Home;
-using BankOfSimba.Models;
 
 namespace BankOfSimba.Controllers
 {
-
     public class HomeController : Controller
     {
-		[Route("Account")]
+        HomeViewModel homeViewModel;
+
+        public HomeController(HomeViewModel homeViewModel)
+        {
+            this.homeViewModel = homeViewModel;
+        }
+
+        [HttpGet]
+        [Route("Account")]
         public IActionResult Index()
         {
-			return View(new HomeViewModel());
+            return View(homeViewModel);
+        }
+
+        [HttpPost]
+        [Route("Account")]
+        public IActionResult Action(string Name)
+        {
+            
+            homeViewModel.Raise(Name);
+            return RedirectToAction("Index");
         }
     }
 }
