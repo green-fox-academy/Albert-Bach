@@ -1,9 +1,26 @@
-﻿@model string
+﻿@model ICollection<ListingTodos.Models.Todo>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <title></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/css/StyleSheet.css")" />
 </head>
 <body>
-    @Model
+    <table>
+        <tr>
+            <td>Id</td>
+            <td>Title</td>
+            <td>IsDone</td>
+            <td>IsUrgent</td>
+        </tr>
+        @foreach (var item in Model)
+            {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.Title</td>
+                <td>@item.IsDone</td>
+                <td>@item.IsUrgent</td>
+            </tr>
+        }
+    </table>
 </body>
 </html>

@@ -1,15 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-//using ListingTodos.Entities;
+using ListingTodos.Entities;
 using Microsoft.EntityFrameworkCore;
-//using ListingTodos.Repositories;
+using ListingTodos.Repositories;
 using Microsoft.Extensions.Configuration;
 using System.IO;
 
@@ -28,8 +24,8 @@ namespace ListingTodos
             //Configuration = builder.Build();
 
             services.AddMvc();
-            //services.AddDbContext<StudentContext>(options => options.UseSqlServer(Configuration["ConnectionStrings:StudentConnection"]));
-            //services.AddScoped<StudentRepository>();
+            services.AddDbContext<TodoContext>(options => options.UseSqlServer(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=ListingTodos;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=True;"));
+            services.AddScoped<TodoRepository>();
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
@@ -42,6 +38,7 @@ namespace ListingTodos
             }
 
             app.UseMvc();
+            app.UseStaticFiles();
 
             app.Run(async (context) =>
             {

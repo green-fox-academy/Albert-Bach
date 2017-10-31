@@ -1,5 +1,4 @@
-﻿using ListingTodos.Entities;
-using ListingTodos.Repositories;
+﻿using ListingTodos.Repositories;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -11,7 +10,6 @@ using System.Threading.Tasks;
 
 namespace ListingTodos.Controllers
 {
-    [Route("/todo")]
     public class TodoController : Controller
     {
         TodoRepository TodoRepository;
@@ -21,6 +19,7 @@ namespace ListingTodos.Controllers
             TodoRepository = todoRepository;
         }
 
+        [Route("/todo")]
         public IActionResult Index()
         {
             return View();
@@ -30,8 +29,15 @@ namespace ListingTodos.Controllers
         [Route("/list")]
         public IActionResult List()
         {
-            string words = "This is my first todo";
-            return View((object)words);
+            return View(TodoRepository.GetList());
         }
-    }   
+
+        [Route("/add")]
+        public IActionResult Add()
+        {
+            TodoRepository.AddTodo();
+            return RedirectToAction("List");
+        }
+
+    }
 }
