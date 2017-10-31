@@ -1,8 +1,12 @@
-﻿using System;
+﻿using ListingTodos.Entities;
+using ListingTodos.Repositories;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+
 
 
 namespace ListingTodos.Controllers
@@ -10,10 +14,12 @@ namespace ListingTodos.Controllers
     [Route("/todo")]
     public class TodoController : Controller
     {
-        //public TodoController(StudentRepository studentRepository)
-        //{
-        //    StudentRepository = studentRepository;
-        //}
+        TodoRepository TodoRepository;
+
+        public TodoController(TodoRepository todoRepository)
+        {
+            TodoRepository = todoRepository;
+        }
 
         public IActionResult Index()
         {
