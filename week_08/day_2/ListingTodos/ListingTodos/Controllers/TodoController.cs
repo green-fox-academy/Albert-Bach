@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using ListingTodos.Entities;
 
 
 
@@ -27,7 +28,7 @@ namespace ListingTodos.Controllers
             {
                 return View(TodoRepository.NotDoneList());
             }
-                return View(TodoRepository.GetList());
+            return View(TodoRepository.GetList());
         }
 
         [Route("/todo/add")]
@@ -50,6 +51,22 @@ namespace ListingTodos.Controllers
         public IActionResult Delete(int id)
         {
             TodoRepository.DeleteTodo(id);
+            return RedirectToAction("List");
+        }
+
+        [Route("/{id}/update")]
+        [HttpPost]
+        public IActionResult Update(int id)
+        {
+            var todo = TodoRepository.Updating(id);
+            return View(todo);
+        }
+
+        [Route("/{id}/edit")]
+        [HttpPost]
+        public IActionResult Edit(ListingTodos.Models.Todo todo)
+        {
+            TodoRepository.UpdateTodo(todo);
             return RedirectToAction("List");
         }
     }

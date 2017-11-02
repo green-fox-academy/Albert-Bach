@@ -48,5 +48,16 @@ namespace ListingTodos.Repositories
             TodoContext.Todos.Remove(deleteTodo);
             TodoContext.SaveChanges();
         }
+
+        public Todo Updating(int id)
+        {
+            return TodoContext.Todos.FirstOrDefault(x => x.Id == id);
+        }
+
+        public void UpdateTodo(Todo todo)
+        {
+            TodoContext.Todos.Update(todo);
+            TodoContext.SaveChanges();
+        }
     }
 }
