@@ -20,6 +20,7 @@ namespace ListingTodos.Controllers
         }
 
         [Route("/todo")]
+        [HttpGet]
         public IActionResult Index()
         {
             return View();
@@ -32,10 +33,18 @@ namespace ListingTodos.Controllers
             return View(TodoRepository.GetList());
         }
 
-        [Route("/add")]
+        [Route("/todo/add")]
+        [HttpGet]
         public IActionResult Add()
         {
-            TodoRepository.AddTodo();
+            return View();
+        }
+
+        [Route("/todo/add")]
+        [HttpPost]
+        public IActionResult Add(string title)
+        {
+            TodoRepository.AddTodo(title);
             return RedirectToAction("List");
         }
 

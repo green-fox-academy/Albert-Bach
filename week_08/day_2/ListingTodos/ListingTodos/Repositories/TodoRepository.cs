@@ -21,13 +21,13 @@ namespace ListingTodos.Repositories
             return TodoContext.Todos.ToList();
         }
 
-        public void AddTodo()
+        public void AddTodo(string title)
         {
             var todo = new Todo()
             {
-                Title = "Feed the monkey",
-                IsDone = true,
-                IsUrgent = true
+                Title = title,
+                IsDone = false,
+                IsUrgent = false
             };
 
             TodoContext.Todos.Add(todo);

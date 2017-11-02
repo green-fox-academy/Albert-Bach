@@ -17,12 +17,6 @@ namespace ListingTodos
 
         public void ConfigureServices(IServiceCollection services)
         {
-            //var builder = new ConfigurationBuilder()
-            //    .SetBasePath(Directory.GetCurrentDirectory())
-            //    .AddJsonFile("appsettings.json");
-
-            //Configuration = builder.Build();
-
             services.AddMvc();
             services.AddDbContext<TodoContext>(options => options.UseSqlServer(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=ListingTodos;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=True;"));
             services.AddScoped<TodoRepository>();
@@ -39,11 +33,6 @@ namespace ListingTodos
 
             app.UseMvc();
             app.UseStaticFiles();
-
-            app.Run(async (context) =>
-            {
-                await context.Response.WriteAsync("Hello World!");
-            });
         }
     }
 }
