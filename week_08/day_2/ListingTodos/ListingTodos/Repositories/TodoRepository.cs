@@ -20,6 +20,14 @@ namespace ListingTodos.Repositories
         {
             return TodoContext.Todos.ToList();
         }
+        public List<Todo> NotDoneList()
+        {
+            var notDone = from title in TodoContext.Todos
+                          where title.IsDone == false
+                          select title;
+            return notDone.ToList();
+        }
+
 
         public void AddTodo(string title)
         {
@@ -34,10 +42,11 @@ namespace ListingTodos.Repositories
             TodoContext.SaveChanges();
         }
 
-        public Todo GetLastTodo()
+        public void DeleteTodo(int id)
         {
-            return TodoContext.Todos.Last();
+            Todo deleteTodo = TodoContext.Todos.FirstOrDefault(x => x.Id == id);
+            TodoContext.Todos.Remove(deleteTodo);
+            TodoContext.SaveChanges();
         }
-
     }
 }

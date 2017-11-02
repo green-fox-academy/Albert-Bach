@@ -5,14 +5,16 @@
     <link rel="stylesheet" type="text/css" href="@Url.Content("~/css/StyleSheet.css")" />
 </head>
 <body>
-    <h1><a href="/todo/add">Add new Todo</a></h1>
+    <h1>TODOS FOR TODAY:</h1>
+    <h2><a href="/todo/add">Add new Todo</a></h2>
 
     <table>
         <tr>
             <td>Id</td>
             <td>Title</td>
-            <td>IsDone</td>
-            <td>IsUrgent</td>
+            <td>Done</td>
+            <td>Urgent</td>
+            <td></td>
         </tr>
         @foreach (var item in Model)
             {
@@ -21,6 +23,10 @@
                 <td>@item.Title</td>
                 <td>@item.IsDone</td>
                 <td>@item.IsUrgent</td>
+                <td><form action="/@item.Id/delete"method="post">
+                    <input type="hidden" name="Id" value="@item.Id" />
+                    <button id="table" class="number" type="submit">Delete</button>
+                    </form></td>
             </tr>
         }
     </table>

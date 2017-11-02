@@ -21,16 +21,13 @@ namespace ListingTodos.Controllers
 
         [Route("/todo")]
         [HttpGet]
-        public IActionResult Index()
+        public IActionResult List(bool IsActive)
         {
-            return View();
-        }
-
-        [Route("/")]
-        [Route("/list")]
-        public IActionResult List()
-        {
-            return View(TodoRepository.GetList());
+            if (IsActive)
+            {
+                return View(TodoRepository.NotDoneList());
+            }
+                return View(TodoRepository.GetList());
         }
 
         [Route("/todo/add")]
@@ -48,5 +45,12 @@ namespace ListingTodos.Controllers
             return RedirectToAction("List");
         }
 
+        [Route("/{id}/delete")]
+        [HttpPost]
+        public IActionResult Delete(int id)
+        {
+            TodoRepository.DeleteTodo(id);
+            return RedirectToAction("List");
+        }
     }
 }
