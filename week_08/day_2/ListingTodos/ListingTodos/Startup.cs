@@ -1,13 +1,11 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using ListingTodos.Entities;
 using Microsoft.EntityFrameworkCore;
 using ListingTodos.Repositories;
 using Microsoft.Extensions.Configuration;
-using System.IO;
 
 namespace ListingTodos
 {

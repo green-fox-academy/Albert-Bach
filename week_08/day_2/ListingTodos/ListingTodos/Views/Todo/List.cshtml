@@ -1,13 +1,11 @@
 ﻿@model ICollection<ListingTodos.Models.Todo>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <link rel="stylesheet" type="text/css" href="@Url.Content("~/css/StyleSheet.css")" />
+     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" type="text/css" href="@Url.Content("~/CSS/StyleSheet.css")" />
 </head>
 <body>
-    <h1>TODOS FOR TODAY:</h1>
-    <h2><a href="/todo/add">Add new Todo</a></h2>
-
+    <h1>What to do today?</h1>
     <table>
         <tr>
             <td>Id</td>
@@ -36,6 +34,13 @@
                 </td>
             </tr>
         }
-    </table>
+    </table><br/>
+
+    <form action="/todo/add" method="get">
+        <button type="submit"
+                value="Add">
+            Add a new task
+        </button>
+    </form>
 </body>
 </html>
