@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 
 
 namespace Frontend.Controllers
@@ -16,13 +12,16 @@ namespace Frontend.Controllers
             return File("index.html", "text/html");
         }
 
-        //[Route("/doubling")]
-        //[HttpGet]
-        //public IActionResult Doubling(int input)
-        //{
-        //    "received": 15;
-        //    "result": 30;
-        //    return View();
-        //}
+        [Route("/doubling")]
+        [HttpGet]
+        public IActionResult Index(int? input)
+        {
+            if(input == null)
+            {
+                return Json(new { error = "Please provide an input!" });
+            }
+            return Json(new { received = input, result = input * 2 });
+
+        }
     }
 }
