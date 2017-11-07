@@ -14,7 +14,7 @@ namespace Frontend.Controllers
 
         [Route("/doubling")]
         [HttpGet]
-        public IActionResult Index(int? input)
+        public IActionResult Doubling(int? input)
         {
             if (input == null)
             {
@@ -26,12 +26,11 @@ namespace Frontend.Controllers
 
         [Route("/greeter")]
         [HttpGet]
-        public IActionResult Index(string name , string title)
+        public IActionResult Greeting(string name, string title)
         {
             if (name == null)
             {
                 return Json(new { error = "Please provide a name!" });
-
             }
 
             else if (title == null)
@@ -41,6 +40,20 @@ namespace Frontend.Controllers
 
             return Json(new { welcome_message = $"Oh, hi there {name}, my dear {title}!" });
 
+        }
+
+        [Route("/appenda/{appendable}")]
+        [HttpGet]
+        public IActionResult AppendA(string appendable)
+        {
+            return Json(new { appended = $"{appendable}a" });
+        }
+
+        [Route("/appenda/")]
+        [HttpGet]
+        public IActionResult Append()
+        {
+            return NotFound();
         }
     }
 }
