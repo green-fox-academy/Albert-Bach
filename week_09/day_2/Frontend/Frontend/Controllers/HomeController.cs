@@ -44,28 +44,26 @@ namespace Frontend.Controllers
         }
 
         [Route("/appenda/{appendable}")]
+        [Route("/appenda/")]
         [HttpGet]
         public IActionResult AppendA(string appendable)
         {
+            if (string.IsNullOrEmpty(appendable))
+            {
+                return NotFound();
+            }
             return Json(new { appended = $"{appendable}a" });
-        }
-
-        [Route("/appenda/")]
-        [HttpGet]
-        public IActionResult Append()
-        {
-            return NotFound();
         }
 
         [HttpPost]
         [Route("dountil/{what}")]
         [Route("dountil/")]
-        public IActionResult DoUntil([FromBody] JsonObject jsonObject, string what)
+        public IActionResult DoUntil([FromBody] DoUntil doUntil, string what)
         {
             if (what == "factor")
             {
                 int factorial = 1;
-                for (int i = 1; i < jsonObject.Until + 1; i++)
+                for (int i = 1; i < doUntil.Until + 1; i++)
                 {
                     factorial *= i;
                 }
@@ -74,13 +72,37 @@ namespace Frontend.Controllers
             else if (what == "sum")
             {
                 int sum = 0;
-                for (int i = 1; i < jsonObject.Until + 1; i++)
+                for (int i = 1; i < doUntil.Until + 1; i++)
                 {
                     sum += i;
                 }
                 return Json(new { result = sum });
             }
             return Json(new { error = "Please provide a number!" });
+        }
+
+        [HttpPost]
+        [Route("array")]
+        public IActionResult ArrayHandler([FromBody] MyArray myArray)
+        {
+            if (myArray.Action == "Sum")
+            {
+                int result = myArray.Sum(myArray.Number);
+                return Json(new { result = result });
+            }
+
+            if (myArray.Action == "Multiply")
+            {
+                int result = myArray.Multiply(myArray.Number);
+                return Json(new { result = result });
+            }
+
+            if (myArray.Action == "Double")
+            {
+                int[] result = myArray.Double(myArray.Number);
+                return Json(new { result = result });
+            }
+            return Json(new { error = "Please provide what to do with the numbers!" });
         }
     }
 }
