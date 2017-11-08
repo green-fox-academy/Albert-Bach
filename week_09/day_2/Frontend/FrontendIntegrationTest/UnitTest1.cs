@@ -42,5 +42,13 @@ namespace FrontendIntegrationTest
 
             Assert.Equal(HttpStatusCode.OK, response.StatusCode);
         }
+
+        [Fact]
+        public async Task ReturnNotFoundForAppend()
+        {
+            var response = await Client.GetAsync("/appenda");
+
+            Assert.Equal(HttpStatusCode.NotFound, response.StatusCode);
+        }
     }
 }
