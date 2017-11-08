@@ -34,5 +34,13 @@ namespace FrontendIntegrationTest
 
             Assert.Equal(HttpStatusCode.OK, response.StatusCode);
         }
+
+        [Fact]
+        public async Task ReturnOkStatusForAppendA()
+        {
+            var response = await Client.GetAsync("/appenda/{appendable}");
+
+            Assert.Equal(HttpStatusCode.OK, response.StatusCode);
+        }
     }
 }
