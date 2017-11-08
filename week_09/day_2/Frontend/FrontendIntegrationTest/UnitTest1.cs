@@ -1,7 +1,9 @@
 using Frontend;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.TestHost;
+using System.Net;
 using System.Net.Http;
+using System.Threading.Tasks;
 using Xunit;
 
 namespace FrontendIntegrationTest
@@ -16,10 +18,21 @@ namespace FrontendIntegrationTest
             Server = new TestServer(new WebHostBuilder().UseStartup<Startup>());
             Client = Server.CreateClient();
         }
-        [Fact]
-        public void Test1()
-        {
 
+        [Fact]
+        public async Task ReturnOkStatusForDouble()
+        {
+            var response = await Client.GetAsync("/doubling");
+
+            Assert.Equal(HttpStatusCode.OK, response.StatusCode);
+        }
+
+        [Fact]
+        public async Task ReturnOkStatusForGreeting()
+        {
+            var response = await Client.GetAsync("/greeter");
+
+            Assert.Equal(HttpStatusCode.OK, response.StatusCode);
         }
     }
 }
