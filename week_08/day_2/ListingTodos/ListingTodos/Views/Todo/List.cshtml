@@ -6,10 +6,10 @@
     @{Layout = "_Layout";}
 </head>
 <body>
-    <h1>What to do today?</h1>
     <div class="container-fluid">
+    <h1>What to do today?</h1>
         <div class="row">
-            <td class="col-md-10">
+            <div class="col-md-10">
                 <table class="table table-striped table-bordered col-lg-10 table-hover">
                     <tr>
                         <td>Id</td>
@@ -55,15 +55,16 @@
                         </tr>
                     }
                 </table>
-                    <div>
-                        <form action="todo/add" method="get">
-                            <button type="submit" class="btn btn-default"
-                                    value="Add">
-                                Add new todo
-                            </button>
-                        </form>
-                    </div>
-            </div>
+                <div>
+                    <form action="todo/add" method="get">
+                        <button type="submit" class="btn btn-default"
+                                value="Add">
+                            Add new todo
+                        </button>
+                    </form>
+                </div>
+        </div>
+    </div>
         </div>
 </body>
 </html>
