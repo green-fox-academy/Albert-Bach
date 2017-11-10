@@ -12,7 +12,7 @@ namespace ListingTodos.Controllers
             TodoRepository = todoRepository;
         }
 
-        [Route("/todo")]
+        [Route("/")]
         [HttpGet]
         public IActionResult List(bool IsActive)
         {

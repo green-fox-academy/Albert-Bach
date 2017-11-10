@@ -1,24 +1,14 @@
-﻿table {
-    background-color: #d46a6a;
-    border-style: solid #ffaaaa;
+﻿body {
+    padding-top: 70px;
+    padding-bottom: 30px;
+}
+
+table {
+    background-color: #72AEA1;
+    border-style: solid;
     font-weight: bolder;
     padding: 10px;
     text-align: left;
-}
-
-td {
-    color: whitesmoke;
-    border: solid 1px #ffaaaa;
-    padding: 5px;
-}
-
-table tr:first-child td {
-    background-color: #aa3939;
-    font-size: x-large;
-    padding: 15px;
-}
-
-h1 {
-    font-weight: bolder;
-    font-size: 20px;
+    margin-bottom: 5px;
+    color: #146150;
 }
