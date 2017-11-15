@@ -1,8 +1,4 @@
 ﻿using FoxManager.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace FoxManager.Repositories
 {
@@ -14,5 +10,18 @@ namespace FoxManager.Repositories
         {
             FoxManagerContext = foxManagerContext;
         }
+
+        public List<> GetList()
+        {
+            return TodoContext.Todos.ToList();
+        }
+        public List<Todo> NotDoneList()
+        {
+            var notDone = from title in TodoContext.Todos
+                          where title.IsDone == false
+                          select title;
+            return notDone.ToList();
+        }
+
     }
 }

@@ -4,15 +4,16 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace FoxManager.Controllers
 {
-    public class FoxManagerController : Controller
+    public class HomeController : Controller
     {
         FoxManagerRepository FoxManagerRepository;
 
-        public FoxManagerController(FoxManagerRepository foxManagerRepository)
+        public HomeController(FoxManagerRepository foxManagerRepository)
         {
             FoxManagerRepository = foxManagerRepository;
         }
 
+        [HttpGet]
         public IActionResult Index()
         {
             return View();
