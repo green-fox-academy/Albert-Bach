@@ -8,13 +8,13 @@ using Reddit.Entities;
 namespace Reddit.Migrations
 {
     [DbContext(typeof(PostContext))]
-    [Migration("20171115123804_RedditInitialMigration")]
+    [Migration("20171116095243_RedditInitialMigration")]
     partial class RedditInitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
-                .HasAnnotation("ProductVersion", "1.1.4")
+                .HasAnnotation("ProductVersion", "1.1.3")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
             modelBuilder.Entity("Reddit.Models.Post", b =>

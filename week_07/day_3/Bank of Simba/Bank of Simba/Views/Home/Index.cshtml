@@ -13,10 +13,10 @@
 				<td>Balance</td>
 				<td>Loyalty</td>
 				<td>Behaviour</td>
-                <td>Raise</td>
+				<td>Raise</td>
 			</tr>
 			@foreach (var account in Model.Accounts)
-            {
+			{
 				<tr style="@((@account.IsKing) ? "color:crimson" : "color:black") ">
 					<td>@(account.Id)</td>
 					<td>@account.Name</td>
@@ -24,12 +24,12 @@
 					<td>@account.Balance@String.Format(".00") Zebra</td>
 					<td>@((@account.IsKing) ? "King" : "Not")</td>
 					<td>@((@account.IsGood) ? "Goodguy" : "Badguy")</td>
-                    @using (Html.BeginForm("action", "home"))
-                    {
-                        <input type ="hidden" name="Name" value="@Model.Accounts.ElementAt(account.Id).Name" />
-                        <td><input type="submit"  value="Raise" /></td>
+					@using (Html.BeginForm("action", "home"))
+					{
+						<input type ="hidden" name="Name" value="@Model.Accounts.ElementAt(account.Id).Name" />
+						<td><input type="submit"  value="Raise" /></td>
 
-                    }
+					}
 				</tr>
 			}
 		</table>

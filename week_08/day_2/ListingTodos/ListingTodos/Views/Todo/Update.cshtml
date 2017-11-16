@@ -1,13 +1,20 @@
 ﻿@model ListingTodos.Models.Todo
-<body>
-    <h1>Edit todo</h1>
-    @using (Html.BeginForm("edit", "todo"))
-    {
-    <input type="hidden" name="Id" value="@Model.Id" />
-    <label>What to do? </label> @Html.TextBoxFor(x => x.Title) <br/>
-    <label>Did you finish? </label> @Html.CheckBoxFor(x => x.IsDone)<br />
-    <label>Is it urgent? </label> @Html.CheckBoxFor(x => x.IsUrgent)<br /><br />
-    <button type="submit">Save</button>
+<head>
+    @{
+        Layout = "_Layout";
     }
-    <form action="/" method="get"><button type="submit">Cancel</button></form>
+</head>
+<body class="text-left">
+    <div class="container-fluid">
+        <h1>Edit todo</h1>
+        @using (Html.BeginForm("edit", "todo"))
+        {
+            <input type="hidden" name="Id" value="@Model.Id" />
+            <h4>What to do? @Html.TextBoxFor(x => x.Title)</h4>
+            <h4>Is it urgent?  @Html.CheckBoxFor(x => x.IsUrgent)</h4>
+            <h4>Did you finish? @Html.CheckBoxFor(x => x.IsDone)<br /></h4>
+            <button class="btn btn-default" type="submit">Save</button><br />
+        }
+        <br /><form action="/" method="get"><button class="btn btn-default" type="submit">Cancel</button></form>
+    </div>
 </body>

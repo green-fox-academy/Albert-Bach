@@ -7,9 +7,9 @@ namespace Reddit.Repositories
 {
     public class PostRepository
     {
-       PostContext PostContext;
+        PostContext PostContext;
 
-        public PostRepository (PostContext postContext)
+        public PostRepository(PostContext postContext)
         {
             PostContext = postContext;
         }

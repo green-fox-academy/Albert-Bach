@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.TestHost;
 using System.Net;
 using System.Net.Http;
+using System.Text;
 using System.Threading.Tasks;
 using Xunit;
 
@@ -52,11 +53,31 @@ namespace FrontendIntegrationTest
         }
 
         [Fact]
+        public async Task ReturnOkStatusForDoUntil()
+        {
+            var response = await Client.GetAsync("/dountil/{what}");
+
+            Assert.Equal(HttpStatusCode.OK, response.StatusCode);
+        }
+
+        [Fact]
         public async Task ReturnOkStatusForArray()
         {
             var response = await Client.GetAsync("/array");
 
             Assert.Equal(HttpStatusCode.OK, response.StatusCode);
+        }
+
+        [Fact]
+        public async Task ReturnErrorMessageWithNullInputSum()
+        {
+            var data = new StringContent(content: "", encoding: Encoding.UTF8, mediaType: "application/json");
+            var response = await Client.PostAsync("dountil/sum", data);
+            var responseString = await response.Content.ReadAsStringAsync();
+
+            string error = "{\"error\":\"Please provide a number!\"}";
+
+            Assert.Equal(error, responseString);
         }
     }
 }

@@ -60,25 +60,38 @@ namespace Frontend.Controllers
         [Route("dountil/")]
         public IActionResult DoUntil([FromBody] DoUntil doUntil, string what)
         {
-            if (what == "factor")
+            if (doUntil == null || doUntil.Until == null)
             {
-                int factorial = 1;
-                for (int i = 1; i < doUntil.Until + 1; i++)
-                {
-                    factorial *= i;
-                }
-                return Json(new { result = factorial });
+                return Json(new { error = "Please provide a number!" });
+            }
+            if (string.IsNullOrEmpty(what))
+            {
+                return NotFound();
             }
             else if (what == "sum")
             {
                 int sum = 0;
-                for (int i = 1; i < doUntil.Until + 1; i++)
+
+                for (int i = 0; i <= doUntil.Until; i++)
                 {
                     sum += i;
                 }
                 return Json(new { result = sum });
             }
-            return Json(new { error = "Please provide a number!" });
+            else if (what == "factor")
+            {
+                int fact = 1;
+                fact = (int)doUntil.Until;
+                for (int i = (int)doUntil.Until - 1; i >= 1; i--)
+                {
+                    fact = fact * i;
+                }
+                return Json(new { result = fact });
+            }
+            else
+            {
+                return Json(new { result = 4 });
+            }
         }
 
         [HttpPost]

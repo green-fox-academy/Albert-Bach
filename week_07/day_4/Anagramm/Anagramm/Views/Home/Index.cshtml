@@ -1,0 +1,14 @@
+﻿@model Anagramm.Models.IsAnagramm
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    @using (Html.BeginForm("Index", "Home", FormMethod.Post))
+    {
+        <p>Check for anagramms:</p>
+        <p>@Html.TextBoxFor(model => model.Word)</p>
+        <button type="submit">Is it an anagramm?</button>
+    }
+</body>
+</html>
